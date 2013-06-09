@@ -3,7 +3,7 @@ require "chunky_png"
 require "awesome_print"
 
 
-IMAGE = File.expand_path(File.join(File.dirname(__FILE__), "g.png"))
+IMAGE = File.expand_path(File.join(File.dirname(__FILE__), "results/negte-pic_xq8v.png"))
 
 m4qn  = ChunkyPNG::Image.from_file(IMAGE)
 m4qncanvas = ChunkyPNG::Canvas.from_file(IMAGE)
@@ -32,8 +32,8 @@ puts "=================="
 
 for h in 0..(m4qncanvas.height - 1)
   for w in 0..(m4qncanvas.width - 1)
-    value = m4qncanvas[w, h] == 255 ? "1" : "0"
-    print value
+    value = m4qncanvas[w, h]# == 255 ? "1" : "0"
+    print "%10d" % value
     c[w][h] = value
   end
   print "\n"
